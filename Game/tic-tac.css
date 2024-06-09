@@ -146,13 +146,6 @@ dialog {
     }
 }
 
-dialog::-ms-backdrop,dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0);
-    transition: all 1s;
-}
-    dialog[open]::backdrop {
-        background-color: rgba(0,0,0,0.25);
-    }
     @media screen and (max-height: 500px), (max-width: 500px),(max-height>max-width) {
         .wrapper {
             display: inline;
@@ -172,6 +165,6 @@ dialog::-ms-backdrop,dialog::backdrop {
             transform: scale(0.5);
         }
         #warn {
-            top: 10%s;
+            top: 10%;
         }
     }
