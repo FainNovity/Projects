@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tic-tac.css">
+    <title>SUPER Tic - tac - toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1 id="super">SUPER tic tac toe</h1>
+            <button onclick="rules()">Rules</button>
+            <h1>Turn : <span id="turn"></span></h1>
+            <h3 id="warn"></h3>
+            <div class="playground">
+                <div class="ground">
+            <div class="box" onclick="select(0)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(1)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(2)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(3)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(4)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(5)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(6)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(7)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+            <div class="box" onclick="select(8)" >
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+                <div class="mini-box"></div>
+            </div>
+        </div>
+        <div class="ground" id="playBox">
+            <div class="mini-box" onclick="moveBox(0)"></div>
+            <div class="mini-box" onclick="moveBox(1)"></div>
+            <div class="mini-box" onclick="moveBox(2)"></div>
+            <div class="mini-box" onclick="moveBox(3)"></div>
+            <div class="mini-box" onclick="moveBox(4)"></div>
+            <div class="mini-box" onclick="moveBox(5)"></div>
+            <div class="mini-box" onclick="moveBox(6)"></div>
+            <div class="mini-box" onclick="moveBox(7)"></div>
+            <div class="mini-box" onclick="moveBox(8)"></div>
+        </div>
+    </div>
+    
+    <dialog>
+        <h4>And the winner is : <span id="win"></span></h4>
+        <form method="dialog">
+          <button>reset the board</button>
+        </form>
+      </dialog>
+
+      <dialog id="rules">
+        <h4>Rules to play super tic-tac-toe :</h4>
+        <br>
+        <ol>
+            <li>Select any box from the ground on the left, you want to start the game with.</li>
+            <li>click the mini-box on the ground on right, you want to fill in selected box.</li>
+            <li>The mini-box you filled will be next selected box of your opponent.</li>
+            <li>If a box is already completed/won by someone, player will get a chance to select the box.</li>
+            <li>When a player wins a box, box will be marked as his sign(x or o).</li>
+            <li>When a player has 3 consequencial wins in 3 boxes, he's declared as winner!!</li>
+        </ol>
+        <form method="dialog">
+          <button>Close</button>
+        </form>
+      </dialog>
+      </div>
+    <script src="tic-tac.js"></script>
+</body>
+</html>
