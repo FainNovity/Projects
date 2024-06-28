@@ -46,16 +46,17 @@ function moveBox(n){
         warn("place is occupied. try other one.");
     }
 }
-function reset(){
+function resetAll(){
     for(var i=0;i<9;i++){
         document.getElementsByClassName("box")[i].innerHTML= "<div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div><div class='mini-box'></div>";
         winArr[i] = "";
     }
 }
 function reset(n){
+    
     for(var i=0;i<9;i++){
-        document.getElementsByClassName("box")[selected].getElementsByClassName("mini-box")[i].textContent = "";
-        valArr[selected*9+i]="";
+        document.getElementsByClassName("box")[n].getElementsByClassName("mini-box")[i].textContent = "";
+        valArr[n*9+i]="";
     }
 }
 function checkBox(){
@@ -137,14 +138,14 @@ function win(){
                     won = winArr[i];
                     document.getElementById("win").innerHTML = won;
                     document.getElementsByTagName("dialog")[0].open = true;
-                    reset();
+                    resetAll();
                     return;
                 }
                 if(winArr[i] ==winArr[i+3] && winArr[i]==winArr[i+6] && !(winArr[i]=="" || winArr[i]==undefined)){
                     won = winArr[i];
                     document.getElementById("win").innerHTML = won;
                     document.getElementsByTagName("dialog")[0].open = true;
-                    reset();
+                    resetAll();
                     return;
                 }
             }
@@ -152,14 +153,14 @@ function win(){
                 won = winArr[0];
                 document.getElementById("win").innerHTML = won;
                 document.getElementsByTagName("dialog")[0].open = true;
-                reset();
+                resetAll();
                 
             }
             if(winArr[2] == winArr[4] && winArr[2]==winArr[6] && !(winArr[2]=="" || winArr[2]==undefined)){
                 won = winArr[2];
                 document.getElementById("win").innerHTML = won;
                 document.getElementsByTagName("dialog")[0].open = true;
-                reset();
+                resetAll();
                 
             }
             if(won==""){
@@ -174,7 +175,7 @@ function win(){
                 if(filled){
                     document.getElementById("win").innerHTML = "None";
                     document.getElementsByTagName("dialog")[0].open = true;
-                    reset();
+                    resetAll();
                 }
                     
                 }
