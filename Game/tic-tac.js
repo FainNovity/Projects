@@ -55,7 +55,7 @@ function reset(){
 function reset(n){
     for(var i=0;i<9;i++){
         document.getElementsByClassName("box")[selected].getElementsByClassName("mini-box")[i].textContent = "";
-        valArr[selected*9+n]="";
+        valArr[selected*9+i]="";
     }
 }
 function checkBox(){
