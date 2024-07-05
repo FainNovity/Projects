@@ -146,6 +146,30 @@ dialog {
     }
 }
 
+.contact {
+    position: fixed;
+    top: calc(100% - 50px);
+    left: 90%;
+    height: 4vmin;
+    font-size: 3vmin;
+    background: rgb(249, 249, 249);
+    border-radius: 0.75vmin;
+    border: 3px groove gray;
+    
+    display: grid;
+    align-content: space-around;
+    justify-content: space-around;
+    
+
+    a{
+        font-family: sans-serif;
+        text-decoration: none;
+    }
+}
+.contact:active {
+    border-color: black;
+}
+
     @media screen and (max-height: 500px), (max-width: 500px),(max-height>max-width) {
         .wrapper {
             display: inline;
