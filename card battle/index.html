@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="side">
+            <div class="team">MITRA RAJYA</div>
+            <div class="health"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            
+        </div>
+        <div id="warn"></div>
+        <div class="side">
+        <div class="team">SHATRU RAJYA</div>
+
+            <div class="health"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            
+        </div>
+        <dialog>
+            <form method="dialog">
+              <button style="background: transparent; font-weight: 800; border: none; color: orange;"><h1 class="bi bi-x-diamond-fill" ></h1>close</button>
+            </form>
+            <h4 style="text-align: center;">Things you need to know</h4>
+            <br>
+            <ol>
+                <li>MITRA RAJYA will make the first move.</li>
+                <li>First one, to reach 0 health will lose!</li>
+                <li>Every character has common attack, strong attack and super attack. Some are having special attacks, too. </li>
+                <li>After performing an attack, that attack is in waiting state for perticular time(given in character data). Meaning, you can't perform that attack till it's in waiting.</li>
+                <li>Every attack takes certain time unit to perform. This time unit is decreased from all waiting moves.</li>
+                
+            </ol>
+                
+            <br />
+
+
+          </dialog>
+          <button id="rules" style=" position: absolute; top: 1vmin; left: 1vmin; z-index: 5;background: transparent; color: orange; border: none;" onclick="rules()"><h1 class="bi bi-info-circle-fill"></h1>Rules</button>
+        <div class="winner">
+            <h1>War ended gracefully</h1>
+            <h2>winner of the match is : <span id="win"></span></h2>
+            <button onclick="closeWinner()" style="background: transparent; font-weight: 800; border: none; color: rgb(97, 72, 39);"><h1 class="bi bi-x-diamond-fill" ></h1>close</button>
+        </div>
+    </div>
+    <div class="contact">
+        <a href="https://www.linkedin.com/in/harsh-parmar-ab919b2b5/"> <span style="color: rgb(52, 81, 228);" class="bi bi-linkedin"></span> </a>
+      </div>
+    <script src="cardBattle.js"></script>
+</body>
+</html>
