@@ -114,7 +114,7 @@ function atk(val,num,player){
        
         setTimeout(()=>{
             document.getElementsByClassName('health')[enemy].style.animationPlayState = 'paused';
-        },990);
+        },980);
     }
     else {
         health[player]-= val;
