@@ -70,6 +70,6 @@ mongoose.connect("mongodb+srv://23010101189:6gwbfJbStcA1ltMp@cluster-1.x5viu.mon
         await chess.deleteOne({"server": req.params.server});
         res.send("Deleted board "+req.params.server);
     });
-    app.use("/.netlify/functions/server/",router);
+    app.use("/server/",router);
     module.exports.handler = serverless(app);
 });
