@@ -9,7 +9,7 @@ mongoose.connect("mongodb+srv://23010101189:6gwbfJbStcA1ltMp@cluster-1.x5viu.mon
     const app = express();
     const router = express.Router();
 
-    app.use("/server/",router);
+    app.use("/",router);
     app.use(bodyParser.urlencoded({extended:true}));
     
   console.log("database connected successfully !!");  
