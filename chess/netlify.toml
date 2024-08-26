@@ -5,4 +5,4 @@
   force = true
   from = "/server/*"
   status = 200
-  to = "/.netlify/functions/server/:splat"
+  to = "/.netlify/functions/server/(:serverid(/:side)?)?"
