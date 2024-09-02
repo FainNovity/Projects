@@ -14,7 +14,7 @@ mongoose.connect("mongodb+srv://23010101189:6gwbfJbStcA1ltMp@cluster-1.x5viu.mon
     const app = express();
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(cors({
-        origin : document.location.origin
+        origin : "*"
     }));    
     
   console.log("database connected successfully !!");  
