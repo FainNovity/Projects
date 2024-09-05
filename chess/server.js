@@ -42,8 +42,8 @@ mongoose.connect("mongodb+srv://23010101189:6gwbfJbStcA1ltMp@cluster-1.x5viu.mon
     app.put('/newOne',async (req,res)=>{
         let server = await getStr();
         console.log(server);
-        let {white, black,time} = req.body;
-        time??= -1;
+        let {white, black} = req.body;
+        
         let newBoard = new chess({
             "board": "rkbqcbkrpppppppp................................PPPPPPPPRKBQCBKR",
             "server" : server,
