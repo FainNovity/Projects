@@ -39,16 +39,20 @@ mongoose.connect("mongodb+srv://23010101189:6gwbfJbStcA1ltMp@cluster-1.x5viu.mon
     app.get('/',async (req,res)=>{
         await fs.readFile('./getServer.html',async (err,data)=>res.type('html').send(data.toString()));
     });
-    app.get('/newOne',async (req,res)=>{
+    app.put('/newOne',async (req,res)=>{
         let server = await getStr();
         console.log(server);
+        let {white, black,time} = req.body;
+        time??= -1;
         let newBoard = new chess({
             "board": "rkbqcbkrpppppppp................................PPPPPPPPRKBQCBKR",
             "server" : server,
             "enPass": [-1,-1],
             "castle" : [[false,false],[false,false]],
             "turn" : true,
-            "won": "-1"
+            "won": "-1",
+            "white": white,
+            "black": black
         });
         await newBoard.save();
         res.send({"server": server});
@@ -67,9 +71,8 @@ mongoose.connect("mongodb+srv://23010101189:6gwbfJbStcA1ltMp@cluster-1.x5viu.mon
         res.send(await chess.findOne({"server": req.params.server}));
     });
     app.post('/:server',async (req,res)=>{
-        let {enPass,castle} = req.body;
+        let {enPass,castle,time} = req.body;
         let castleArr = castle.split(',');
-        console.log(castleArr[2]);
         await chess.updateOne({"server": req.params.server},{...req.body,"enPass": enPass.split(',').map(Number),"castle": [[castleArr[0]=="true",castleArr[1]=="true"],[castleArr[2]=="true",castleArr[3]=="true"]]});
         res.send("Updated board "+req.params.server);
     });

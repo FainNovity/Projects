@@ -82,6 +82,8 @@ async function getBoard(){
 
         } while(newBoard==board);
         console.log(boardData);
+        document.getElementsByClassName("playerName")[1].innerText = boardData.white; 
+        document.getElementsByClassName("playerName")[0].innerText = boardData.black; 
         board = newBoard;
         enPass = boardData.enPass;
         castle = boardData.castle;
@@ -563,7 +565,6 @@ function move(pos, next){
 async function validMove(i,j){
    if((side==1 && turn) || (side==0 && !turn)){
 
-       //console.log(" before : "+enPass)
        if(selected[0]==-1){
            selected= [i,j];
            console.log(document.getElementsByTagName('tr')[i].getElementsByTagName('td')[j].style.background);

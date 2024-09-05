@@ -28,7 +28,7 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        .box {
+        .box,.nameData {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -43,6 +43,28 @@
             border-radius: 2vmin;
             background: rgb(23, 23, 23, 0.5);
             backdrop-filter: blur(5px);
+        }
+        .nameData {
+            align-content: center;
+            gap: 2vmin;
+            color: rgb(255, 255, 255);
+
+            input {
+                border: none;
+                background: rgb(2, 2, 2, 0.5);
+                color: white;
+                height: 4vh;
+                border-radius: 1vmin;
+                padding: 0vmin 2vmin;
+            }
+            button {
+                height: 4vh;
+                margin: 4vmin 0vmin;
+                font-size: 100%;
+            }
+        }
+        .box{
+            visibility: collapse;
         }
         a {
             padding: 2vmin 2vmin;
@@ -74,6 +96,14 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="nameData">
+            <label for="wname">White side : </label>
+            <input type="text" id="wname" placeholder="Player Name" />
+            <label for="bname">Black side : </label>
+            <input type="text" id="bname" placeholder="Player Name" />
+
+            <button onclick="getServer()">get Server</button>
+        </div>
         <div class="box">
             <a target="_blank" href = "" id="white">For white : </a>
             <a target="_blank" style="background: black; color: white;" id="black" href = "">For Black :</a>
@@ -82,8 +112,23 @@
     </div>
     <script>
         let server = "";
-        fetch(document.location.origin+"/newOne",{
-            method: "GET"
+        async function getServer(){
+            let wname = document.getElementById('wname').value;
+            let bname = document.getElementById('bname').value;
+
+            document.getElementsByClassName("nameData")[0].style.visibility = "collapse";
+            document.getElementsByClassName("box")[0].style.visibility = "visible";
+            if(wname=="")
+            wname = "White side";
+        if(bname=="")
+        bname = "Black side";
+    await fetch(document.location.origin+"/newOne",{
+        method: "PUT",
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+            body: new URLSearchParams({
+                "white": wname,
+                "black": bname
+            })
         }).then(async (res)=>{
             server = await res.json();
             document.getElementById("white").innerHTML +="\n"+ document.location.origin+"/"+server.server+"/"+1;
@@ -91,7 +136,9 @@
             document.getElementById("black").innerHTML +="\n"+ document.location.origin+"/"+server.server+"/"+0;
             document.getElementById("black").href = document.location.origin+"/"+server.server+"/"+0;
             document.getElementById("loader").hidden = true;
+
         });
+        }
     </script>
 </body>
 </html>

@@ -2,6 +2,10 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
 }
 .wrapper {
     height: 100vh;
@@ -12,15 +16,51 @@
     overflow-y: auto;
     background: rgb(60, 52, 52);
 }
+.ground {
+    height: 100vmin;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    justify-content: center;
+    align-content: space-evenly;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+.info {
+    height: 10vmin;
+    width: 100%;
+    background: rgb(30, 29, 29);
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    justify-content: start;
+    align-content: center;
+
+    .timer {
+        height: 4vmin;
+        width: 15vmin;
+        font-size: 3vmin;
+        background: white;
+        margin: auto;
+        text-align: center;
+        padding: 0vmin 2vmin;
+        border-radius: 0.5vmin;
+    }
+}
+.playerName {
+    font-size: larger;
+    color: white;
+    margin: auto 4vmin;
+}
 table{
     height: 80vmin;
     width: 80vmin;
-    position: absolute;
-    transform: translate(-50%,-50%);
     table-layout: fixed;
     top: 50%;
     left: 50%;
-    
+    *{
+        font-weight: 100;
+    }
     tr td{
         position: relative;
         max-height: 10vmin;
