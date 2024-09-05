@@ -5,7 +5,9 @@ const chessSchema = new mongoose.Schema({
     enPass: [Number],
     turn : Boolean,
     castle: [[Boolean]],
-    won : String
+    won : String,
+    white : String,
+    black : String
 });
 const chess = mongoose.model('server',chessSchema);
 module.exports = chess;
